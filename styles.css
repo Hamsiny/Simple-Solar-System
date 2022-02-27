@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  /* variables for sun, earth and moon */
+  --s: #f39c12;
+  --e: #3498db;
+  --m: #1abc9c;
+}
+
+.sun {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--s);
+  box-shadow: 0 0 10px var(--s), 0 0 20px var(--s), 0 0 30px var(--s),
+    0 0 40px var(--s);
+  animation: rotate 36.5s linear infinite;
+}
+
+.sun::after {
+  content: "";
+  width: 330px;
+  height: 330px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #fff;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.earth {
+  position: absolute;
+  left: 200px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--e);
+  box-shadow: 0 0 10px var(--e), 0 0 20px var(--e), 0 0 30px var(--e),
+    0 0 40px var(--e);
+  animation: rotate 3s linear infinite;
+}
+
+.earth::after {
+  content: "";
+  width: 84px;
+  height: 84px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #fff;
+  border-radius: 50%;
+  /* z-index: -1; */
+}
+
+.moon {
+  position: absolute;
+  left: 50px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--m);
+  box-shadow: 0 0 5px var(--m), 0 0 10px var(--m), 0 0 20px var(--m);
+}
+
+@keyframes rotate {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
